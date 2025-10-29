@@ -144,13 +144,25 @@ section {
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Sombra más suave */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Añadido border-color */
     border: 1px solid #eee;
+    /* Borde inferior inicial transparente */
+    border-bottom: 5px solid transparent; 
 }
 
 .card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Diferenciación para tarjetas clickables (añadido) */
+.card.clickable-card {
+    border-bottom-color: var(--color-acento); /* Naranja inicial */
+    cursor: pointer;
+}
+
+.card.clickable-card:hover {
+    border-bottom-color: var(--color-secundario); /* Magenta en hover */
 }
 
 .card h3 {
@@ -192,6 +204,232 @@ footer {
     text-align: center;
     padding: 30px 0;
     margin-top: 40px;
+}
+
+/* =================================
+   Pantalla de Carga
+   ================================= */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-fondo); /* Fondo crema */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Añadido visibility */
+}
+
+#loader p {
+    font-family: var(--fuente-titulos);
+    color: var(--color-primario);
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(0, 139, 139, 0.2); /* Turquesa claro */
+    border-top-color: var(--color-primario); /* Turquesa oscuro */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Clase para ocultar el loader y mostrar la página */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.hidden-on-load {
+    display: none; /* Oculta la página al inicio */
+}
+
+.visible {
+    display: block; /* Muestra la página */
+}
+
+/* =================================
+   Estilos del Modal
+   ================================= */
+#modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#modal-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#modal-content {
+    background-color: var(--color-blanco);
+    padding: 40px; /* Más padding */
+    border-radius: 15px;
+    width: 90%;
+    max-width: 650px; /* Un poco más ancho */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+#modal-container.hidden #modal-content {
+    transform: scale(0.9);
+}
+
+#modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+#modal-close-btn:hover {
+    color: var(--color-texto);
+}
+
+#modal-title {
+    color: var(--color-primario);
+    margin-top: 0;
+    margin-bottom: 20px; /* Más espacio */
+    font-size: 2rem; /* Título más grande */
+}
+
+#modal-body {
+    font-size: 1.1rem;
+    line-height: 1.8; /* Más interlineado */
+}
+#modal-body strong {
+    color: var(--color-secundario); /* Resaltar con Magenta */
+}
+#modal-body ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+#modal-body li {
+    margin-bottom: 8px;
+}
+
+/* =================================
+   Estilos del Quiz
+   ================================= */
+#quiz-container {
+    background-color: var(--color-blanco);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#quiz-question {
+    font-size: 1.5rem;
+    color: var(--color-primario);
+    margin-bottom: 25px; /* Más espacio */
+}
+
+#quiz-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px; /* Más espacio entre opciones */
+}
+
+.quiz-option {
+    width: 100%;
+    padding: 15px 20px; /* Más padding */
+    font-size: 1.1rem;
+    font-family: var(--fuente-cuerpo);
+    font-weight: 700;
+    background-color: var(--color-fondo);
+    border: 2px solid #eee;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.quiz-option:hover:not(:disabled) {
+    background-color: var(--color-blanco);
+    border-color: var(--color-acento);
+    transform: scale(1.02);
+}
+
+.quiz-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Clases para retroalimentación */
+.quiz-option.correct {
+    background-color: #d1f7c4; /* Verde más vibrante */
+    border-color: #a3e9a4;
+    color: #145c00;
+}
+
+.quiz-option.incorrect {
+    background-color: #fddede; /* Rojo más suave */
+    border-color: #f7baba;
+    color: #8b0000;
+}
+
+#quiz-feedback {
+    margin-top: 25px; /* Más espacio */
+    font-size: 1.3rem; /* Más grande */
+    font-weight: 700;
+    text-align: center; /* Centrado */
+}
+
+#quiz-next-btn {
+    display: block;
+    margin: 25px auto 0 auto; /* Centrado */
+    padding: 14px 30px; /* Más padding */
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-blanco);
+    background-color: var(--color-secundario);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#quiz-next-btn.hidden {
+    display: none;
+}
+
+#quiz-next-btn:hover {
+    background-color: #a70054; /* Magenta oscuro */
+    transform: scale(1.05);
 }
 
 /* =================================
@@ -405,6 +643,71 @@ footer {
     }
 }
 
+/* =================================
+   Burbuja de bienvenida del Chat
+   ================================= */
+
+#chat-bubble {
+    position: absolute;
+    bottom: 80px; /* Posición vertical: 80px encima del fondo */
+    right: 10px;  /* Posición horizontal: 10px desde la derecha */
+    width: 210px; /* Ancho de la burbuja */
+    
+    background-color: var(--color-primario); /* Fondo turquesa */
+    color: var(--color-blanco);
+    padding: 12px 15px;
+    border-radius: 12px;
+    
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    font-size: 0.95rem;
+    font-weight: bold;
+    font-family: var(--fuente-cuerpo);
+    text-align: center;
+
+    /* Animación para que aparezca suavemente */
+    opacity: 0;
+    transform: translateY(10px);
+    /* Inicia la animación 1 segundo después de que carga la página */
+    animation: fadeInBubble 0.5s ease 1s forwards; 
+    
+    /* Por defecto, la ocultamos en móviles (ocupa mucho espacio) */
+    display: none; 
+}
+
+/* El "pico" de la historieta (CSS Triangle Trick) */
+#chat-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Apunta hacia abajo */
+    right: 25px;   /* Se alinea con el botón de abajo */
+    
+    /* El truco del triángulo */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--color-primario); /* Mismo color que la burbuja */
+}
+
+/* Animación de aparición */
+@keyframes fadeInBubble {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Solo mostramos la burbuja en pantallas grandes (desktop) */
+@media (min-width: 768px) {
+    #chat-bubble {
+        display: block;
+    }
+}
+
 
 /* =================================
    RESPONSIVO
@@ -418,6 +721,8 @@ footer {
     header nav li { margin: 5px 10px; }
     .hero h2 { font-size: 2.2rem; }
     h2 { font-size: 2rem; }
+    #modal-content { padding: 30px; } /* Menos padding en modal */
+    #modal-title { font-size: 1.8rem; }
 }
 
 @media (max-width: 400px) {
@@ -433,237 +738,3 @@ footer {
         right: 10px;
     }
 }
-
-/* ... (Todo tu CSS anterior va aquí) ... */
-
-/* =================================
-   NUEVO: Pantalla de Carga
-   ================================= */
-#loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--color-fondo); /* Fondo crema */
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s ease;
-}
-
-#loader p {
-    font-family: var(--fuente-titulos);
-    color: var(--color-primario);
-    font-size: 1.2rem;
-    margin-top: 20px;
-}
-
-.spinner {
-    width: 60px;
-    height: 60px;
-    border: 5px solid rgba(0, 139, 139, 0.2); /* Turquesa claro */
-    border-top-color: var(--color-primario); /* Turquesa oscuro */
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Clase para ocultar el loader y mostrar la página */
-.loader-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.hidden-on-load {
-    display: none; /* Oculta la página al inicio */
-}
-
-.visible {
-    display: block; /* Muestra la página */
-}
-
-/* =================================
-   NUEVO: Tarjetas Clickables (Modal)
-   ================================= */
-.clickable-card {
-    cursor: pointer;
-    border-bottom: 5px solid var(--color-acento); /* Naranja */
-}
-
-.clickable-card:hover {
-    border-bottom-color: var(--color-secundario); /* Magenta */
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* =================================
-   NUEVO: Estilos del Modal
-   ================================= */
-#modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
-    z-index: 2000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-#modal-container.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-#modal-content {
-    background-color: var(--color-blanco);
-    padding: 30px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    position: relative;
-    transform: scale(1);
-    transition: transform 0.3s ease;
-}
-
-#modal-container.hidden #modal-content {
-    transform: scale(0.9);
-}
-
-#modal-close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 2.5rem;
-    color: #aaa;
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.3s ease;
-}
-
-#modal-close-btn:hover {
-    color: var(--color-texto);
-}
-
-#modal-title {
-    color: var(--color-primario);
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-#modal-body {
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-/* =================================
-   NUEVO: Estilos del Quiz
-   ================================= */
-#quiz-container {
-    background-color: var(--color-blanco);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-#quiz-question {
-    font-size: 1.5rem;
-    color: var(--color-primario);
-    margin-bottom: 20px;
-}
-
-#quiz-options {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-}
-
-.quiz-option {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.1rem;
-    font-family: var(--fuente-cuerpo);
-    font-weight: 700;
-    background-color: var(--color-fondo);
-    border: 2px solid #eee;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: left;
-    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
-}
-
-.quiz-option:hover:not(:disabled) {
-    background-color: var(--color-blanco);
-    border-color: var(--color-acento);
-    transform: scale(1.02);
-}
-
-.quiz-option:disabled {
-    cursor: not-allowed;
-    opacity: 0.8;
-}
-
-/* Clases para retroalimentación */
-.quiz-option.correct {
-    background-color: #d4edda; /* Verde */
-    border-color: #c3e6cb;
-    color: #155724;
-}
-
-.quiz-option.incorrect {
-    background-color: #f8d7da; /* Rojo */
-    border-color: #f5c6cb;
-    color: #721c24;
-}
-
-#quiz-feedback {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-#quiz-next-btn {
-    display: block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-blanco);
-    background-color: var(--color-secundario);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#quiz-next-btn.hidden {
-    display: none;
-}
-
-#quiz-next-btn:hover {
-    background-color: #a70054; /* Magenta oscuro */
-}
-
-/* =================================
-   Chats y Responsivo (Sin cambios)
-   ================================= */
-/* ... (El resto de tu CSS para el chat y @media queries) ... */
