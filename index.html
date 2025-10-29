@@ -1,146 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corazón Vibrante - Culturas de México</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corazón Vibrante - Culturas de México</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    rel="stylesheet"
+  />
 </head>
-</html>
-
 <body>
+  <!-- ================= LOADER ================= -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Cargando el corazón de México...</p>
+  </div>
 
-    <header>
-        <div class="container">
-            <h1>Corazón Vibrante 🌺</h1>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#comunicacion">Comunicación</a></li>
-                    <li><a href="#pueblos">Pueblos</a></li>
-                    <li><a href="#curiosidades">Sabías que...</a></li>
-                    <li><a href="#estadisticas">Estadísticas</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section id="inicio" class="hero">
-            <div class="container">
-                <h2>El Sonido de Nuestras Raíces</h2>
-                <p>Descubre la riqueza de las lenguas indígenas de México y aprende a construir puentes de respeto y entendimiento.</p>
-            </div>
-        </section>
-
-        <section id="comunicacion" class="container">
-            <h2>Construyendo Puentes: ¿Cómo Ayudar?</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Escucha Activa</h3>
-                    <p>Presta atención no solo a las palabras, sino al contexto y al lenguaje no verbal. No interrumpas y sé paciente.</p>
-                </div>
-                <div class="card">
-                    <h3>Abandona Prejuicios</h3>
-                    <p>No asumas que tu forma de ver el mundo es la única. Acércate con humildad y una mente abierta para aprender.</p>
-                </div>
-                <div class="card">
-                    <h3>Aprende Frases Básicas</h3>
-                    <p>Un simple "buenos días" (por ejemplo, "Padiush" en Zapoteco) o "gracias" en la lengua local muestra un profundo respeto.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="pueblos" class="container section-shaded">
-            <h2>Pueblos: Corazón de México</h2>
-            <div class="card-grid-pueblos">
-                
-                <div class="card language-card">
-                    <img src="https://lh5.googleusercontent.com/proxy/rDvmoQjtVlne2DBb2bIn2HVi1fxT6DShO2_Hp0OIjt8We65QTN40JWDg_3Mk0LQdNuWyAtEwemO11wAtpiPBi7PgMf8sB0PjwV4RcKpjlqK2lrFcEMwEjj5ERmYl" alt="Persona Náhuatl">
-                    <h3>Pueblo Náhuatl</h3>
-                    <h4>Vestimenta Típica:</h4>
-                    <p>Destaca el "tilmatli" (tilma) en hombres y el "huipilli" (huipil) bordado con flores y geometría en mujeres, usando algodón y tintes naturales.</p>
-                    <h4>Cosmovisión y Creencias:</h4>
-                    <p>Su mundo se basa en la dualidad (Ometeotl). Veneran al maíz (Centeotl) como eje de la vida y tienen un profundo respeto por la naturaleza.</p>
-                </div>
-                
-                <div class="card language-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaOathsZ_28HRZw7NzZ6Xu_NvRmiwCtRy7Yw&s" alt="Persona Maya">
-                    <h3>Pueblo Maya</h3>
-                    <h4>Vestimenta Típica:</h4>
-                    <p>El "hipil" en Yucatán, un vestido blanco bordado con flores de colores vivos en el cuello. Los hombres usan guayaberas de lino o algodón.</p>
-                    <h4>Cosmovisión y Creencias:</h4>
-                    <p>Ven el universo como un árbol sagrado (la ceiba) que conecta el cielo, la tierra y el inframundo (Xibalbá). El tiempo es cíclico.</p>
-                </div>
-                
-                <div class="card language-card">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzgN6AA2pi8D0TChDV3SAyqwqJFbs9oJNUGg&s" alt="Textil Zapoteco">
-                    <h3>Pueblo Zapoteco</h3>
-                    <h4>Vestimenta Típica:</h4>
-                    <p>Famosos por los trajes de Tehuana (Istmo), con faldas amplias (rabonas) y huipiles bordados en seda con flores grandes y coloridas.</p>
-                    <h4>Cosmovisión y Creencias:</h4>
-                    <p>Tienen un fuerte vínculo con sus ancestros y la tierra. Sus "tonas" (animales espirituales) guían el destino de cada persona al nacer.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="curiosidades" class="container">
-            <h2>Sabías que...</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Medicina Tradicional</h3>
-                    <p>Las lenguas guardan un vasto conocimiento sobre botánica. Saben qué planta usar para cada malestar, un saber transmitido por generaciones.</p>
-                </div>
-                <div class="card">
-                    <h3>Lenguas Tonales</h3>
-                    <p>Muchas lenguas como el Zapoteco o el Mixteco son tonales. "Ya'a" puede significar "ceniza", "madera" o "alto" según el tono con que se diga.</p>
-                </div>
-                <div class="card">
-                    <h3>¿"Mande"?</h3>
-                    <p>La expresión "Mande" (en lugar de "qué") tiene raíces en la colonia, pero hoy es una señal de respeto al hablar con mayores en muchas comunidades.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="estadisticas" class="container section-shaded">
-            <h2>Hablantes en Cifras</h2>
-            <p>Visualiza la cantidad de hablantes de las principales lenguas indígenas en México (Datos de ejemplo).</p>
-            <div class="chart-container">
-                <canvas id="graficaLenguas"></canvas>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>Proyecto Corazón Vibrante &copy; 2025</p>
-        </div>
-    </footer>
-    <div id="chat-toggle">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="container">
+      <h1>Corazón Vibrante 🌺</h1>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#comunicacion">Comunicación</a></li>
+          <li><a href="#pueblos">Pueblos</a></li>
+          <li><a href="#interactivo">Interactivo</a></li>
+          <li><a href="#estadisticas">Estadísticas</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <div id="chat-container" class="hidden">
-        <div class="chat-header">
-            <h4>Asistente Cultural</h4>
-            <button id="chat-close">&times;</button>
+  <!-- ================= CONTENIDO PRINCIPAL ================= -->
+  <main>
+    <section id="inicio" class="hero" data-aos="fade-in">
+      <div class="container">
+        <h2>El Sonido de Nuestras Raíces</h2>
+        <p>Descubre la riqueza de las lenguas indígenas de México y aprende a construir puentes de respeto y entendimiento.</p>
+      </div>
+    </section>
+
+    <section id="comunicacion" class="container" data-aos="fade-up">
+      <h2>Construyendo Puentes: ¿Cómo Ayudar?</h2>
+      <div class="card-grid">
+        <div class="card"><h3>Escucha Activa</h3><p>Presta atención no solo a las palabras, sino al contexto y al lenguaje no verbal. No interrumpas y sé paciente.</p></div>
+        <div class="card"><h3>Abandona Prejuicios</h3><p>No asumas que tu forma de ver el mundo es la única. Acércate con humildad y una mente abierta para aprender.</p></div>
+        <div class="card"><h3>Aprende Frases Básicas</h3><p>Un simple "buenos días" (por ejemplo, "Padiush" en Zapoteco) o "gracias" en la lengua local muestra un profundo respeto.</p></div>
+      </div>
+    </section>
+
+    <section id="pueblos" class="container section-shaded" data-aos="fade-up">
+      <h2>Pueblos: Corazón de México</h2>
+      <div class="card-grid-pueblos">
+        <div class="card language-card">
+          <img src="https://lh5.googleusercontent.com/proxy/rDvmoQjtVlne2DBb2bIn2HVi1fxT6DShO2_Hp0OIjt8We65QTN40JWDg_3Mk0LQdNuWyAtEwemO11wAtpiPBi7PgMf8sB0PjwV4RcKpjlqK2lrFcEMwEjj5ERmYl" alt="Persona Náhuatl" />
+          <h3>Pueblo Náhuatl</h3>
+          <h4>Vestimenta Típica:</h4>
+          <p>El "tilmatli" y el "huipilli" representan la herencia textil y espiritual del pueblo náhuatl.</p>
+          <h4>Cosmovisión:</h4>
+          <p>El maíz y la dualidad son el eje de su cosmovisión; todo tiene su complemento.</p>
         </div>
-        <div id="chat-messages">
-            <div class="chat-message bot-message">
-                <p>¡Hola! 👋 Soy un asistente virtual. Pregúntame sobre las culturas de México o pídeme una traducción (ej. "traduce agua").</p>
-            </div>
+
+        <div class="card language-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaOathsZ_28HRZw7NzZ6Xu_NvRmiwCtRy7Yw&s" alt="Persona Maya" />
+          <h3>Pueblo Maya</h3>
+          <h4>Vestimenta Típica:</h4>
+          <p>El “hipil” blanco bordado con flores simboliza pureza y conexión con la naturaleza.</p>
+          <h4>Cosmovisión:</h4>
+          <p>La ceiba conecta el cielo, la tierra y el inframundo (Xibalbá).</p>
         </div>
-        <form id="chat-form">
-            <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." autocomplete="off">
-            <button type="submit">Enviar</button>
-        </form>
+
+        <div class="card language-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzgN6AA2pi8D0TChDV3SAyqwqJFbs9oJNUGg&s" alt="Textil Zapoteco" />
+          <h3>Pueblo Zapoteco</h3>
+          <h4>Vestimenta Típica:</h4>
+          <p>Los trajes de Tehuana son un ícono del Istmo, con bordados coloridos y orgullo femenino.</p>
+          <h4>Cosmovisión:</h4>
+          <p>El vínculo con los ancestros y la tierra es esencial en su espiritualidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INTERACTIVO ================= -->
+    <section id="interactivo" class="container" data-aos="fade-up">
+      <h2>Zona Interactiva 🌎</h2>
+      <div class="interactive-area">
+        <div class="quiz-section">
+          <h3>🧠 Mini Cuestionario Cultural</h3>
+          <p>Demuestra cuánto sabes sobre nuestras lenguas originarias.</p>
+          <div id="quiz">
+            <p><strong>1.</strong> ¿Cuál es la lengua indígena más hablada en México?</p>
+            <button class="quiz-btn" data-answer="true">Náhuatl</button>
+            <button class="quiz-btn" data-answer="false">Zapoteco</button>
+            <button class="quiz-btn" data-answer="false">Maya</button>
+          </div>
+          <p id="quiz-feedback"></p>
+        </div>
+
+        <div class="sopa-section">
+          <h3>🔡 Sopa de Letras Cultural</h3>
+          <p>Encuentra estas palabras: <strong>NÁHUATL, MAYA, MIXTECO, ZAPOTECO</strong></p>
+          <canvas id="sopaCanvas" width="300" height="300"></canvas>
+          <button id="sopaReiniciar">Reiniciar</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="estadisticas" class="container section-shaded" data-aos="fade-up">
+      <h2>Hablantes en Cifras</h2>
+      <p>Visualiza la cantidad de hablantes de las principales lenguas indígenas en México.</p>
+      <div class="chart-container">
+        <canvas id="graficaLenguas"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container">
+      <p>Proyecto Corazón Vibrante &copy; 2025 | “Escuchar una lengua es oír el alma de un pueblo.”</p>
     </div>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+  <!-- ================= CHATBOT ================= -->
+  <div id="chat-toggle">
+    💬
+  </div>
+
+  <div id="chat-container" class="hidden">
+    <div class="chat-header">
+      <h4>Asistente Cultural</h4>
+      <button id="chat-close">&times;</button>
+    </div>
+    <div id="chat-messages">
+      <div class="chat-message bot-message">
+        <p>¡Hola! 👋 Soy un asistente virtual. Pregúntame sobre las culturas de México o pídeme una traducción (ej. "traduce agua").</p>
+      </div>
+    </div>
+    <form id="chat-form">
+      <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." autocomplete="off" />
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Librerías externas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
