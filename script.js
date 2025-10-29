@@ -1,5 +1,5 @@
 // =================================
-// NUEVO: Lógica de la Pantalla de Carga
+// Lógica de la Pantalla de Carga
 // =================================
 // Esto se ejecuta cuando toda la página (imágenes, css) ha cargado
 window.onload = () => {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) { console.error("Error al iniciar el chatbot:", e); }
 
     // =================================
-    // NUEVO: Lógica del Modal
+    // Lógica del Modal
     // =================================
     try {
         const modalContainer = document.getElementById('modal-container');
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch(e) { console.error("Error al iniciar el modal:", e); }
 
     // =================================
-    // NUEVO: Lógica del Quiz
+    // Lógica del Quiz
     // =================================
     try {
         const quizData = [
@@ -251,7 +251,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 optionsEl.innerHTML = '';
                 feedbackEl.textContent = `Tu puntuación fue: ${score} de ${quizData.length}`;
                 nextBtn.textContent = "Volver a empezar";
-                nextBtn.addEventListener('click', ()_ => location.reload()); // Recarga la página para reiniciar
+                // Recarga la página para reiniciar el quiz
+                nextBtn.addEventListener('click', () => {
+                    location.reload(); 
+                }, { once: true }); // Asegura que el evento de recarga solo se añada una vez
             }
         });
 
