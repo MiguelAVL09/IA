@@ -644,59 +644,70 @@ footer {
 }
 
 /* =================================
-   Burbuja de bienvenida del Chat
+   Burbuja de bienvenida del Chat (MODIFICADO)
    ================================= */
 
 #chat-bubble {
     position: absolute;
-    bottom: 80px; /* Posición vertical: 80px encima del fondo */
-    right: 10px;  /* Posición horizontal: 10px desde la derecha */
-    width: 210px; /* Ancho de la burbuja */
-    
-    background-color: var(--color-primario); /* Fondo turquesa */
+    bottom: 80px;
+    right: 10px;
+    width: 210px;
+    background-color: var(--color-primario);
     color: var(--color-blanco);
     padding: 12px 15px;
     border-radius: 12px;
-    
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     font-size: 0.95rem;
     font-weight: bold;
     font-family: var(--fuente-cuerpo);
     text-align: center;
-
-    /* Animación para que aparezca suavemente */
-    opacity: 0;
-    transform: translateY(10px);
-    /* Inicia la animación 1 segundo después de que carga la página */
-    animation: fadeInBubble 0.5s ease 1s forwards; 
     
-    /* Por defecto, la ocultamos en móviles (ocupa mucho espacio) */
+    /* Animación para que aparezca y desaparezca */
+    opacity: 0; /* Inicia invisible */
+    /*
+      Animación:
+      - Nombre: fadeInOutBubble
+      - Duración total: 5s
+      - Curva de tiempo: ease-in-out
+      - Retraso: 1s (espera 1s antes de empezar)
+      - Relleno: forwards (mantiene el estado final, o sea, 'opacity: 0')
+    */
+    animation: fadeInOutBubble 5s ease-in-out 1s forwards; 
+    
+    /* Oculta en móviles por defecto */
     display: none; 
 }
 
-/* El "pico" de la historieta (CSS Triangle Trick) */
+/* El "pico" de la historieta (Sin cambios) */
 #chat-bubble::after {
     content: '';
     position: absolute;
-    bottom: -10px; /* Apunta hacia abajo */
-    right: 25px;   /* Se alinea con el botón de abajo */
-    
-    /* El truco del triángulo */
+    bottom: -10px;
+    right: 25px;
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 10px solid var(--color-primario); /* Mismo color que la burbuja */
+    border-top: 10px solid var(--color-primario);
 }
 
-/* Animación de aparición */
-@keyframes fadeInBubble {
-    from {
+/* Animación de aparición Y DESAPARICIÓN (MODIFICADO) */
+@keyframes fadeInOutBubble {
+    /*
+      0.5s para aparecer (10% de 5s)
+      3.5s para quedarse (de 10% a 80% = 70% de 5s = 3.5s)
+      1.0s para desaparecer (de 80% a 100% = 20% de 5s = 1s)
+    */
+    0% {
         opacity: 0;
         transform: translateY(10px);
     }
-    to {
+    10%, 80% { /* Aparece en 0.5s y se queda hasta 4s */
         opacity: 1;
+        transform: translateY(0);
+    }
+    100% { /* Desaparece al final (5s) */
+        opacity: 0;
         transform: translateY(0);
     }
 }

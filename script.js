@@ -1,7 +1,6 @@
 // =================================
 // Lógica de la Pantalla de Carga
 // =================================
-// Esto se ejecuta cuando toda la página (imágenes, css) ha cargado
 window.onload = () => {
     const loader = document.getElementById('loader');
     const pageContent = document.getElementById('page-content');
@@ -114,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalCloseBtn = document.getElementById('modal-close-btn');
         const clickableCards = document.querySelectorAll('.clickable-card');
 
-        // Contenido para cada modal (puedes expandir esto)
+        // Contenido para cada modal
         const modalContent = {
             'escucha-activa': {
                 title: "El Arte de la Escucha Activa",
@@ -154,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modalCloseBtn.addEventListener('click', closeModal);
         modalContainer.addEventListener('click', (e) => {
-            // Cierra el modal si se hace clic en el fondo oscuro
             if (e.target === modalContainer) {
                 closeModal();
             }
@@ -218,16 +216,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedButton = e.target;
             const correctAnswer = quizData[currentQuestionIndex].answer;
 
-            // Deshabilitar todos los botones
             Array.from(optionsEl.children).forEach(button => {
                 button.disabled = true;
-                // Marcar la correcta
                 if (button.textContent === correctAnswer) {
                     button.classList.add('correct');
                 }
             });
 
-            // Marcar la seleccionada
             if (selectedButton.textContent === correctAnswer) {
                 feedbackEl.textContent = "¡Correcto! 🎉";
                 feedbackEl.style.color = "green";
@@ -246,19 +241,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentQuestionIndex < quizData.length) {
                 loadQuestion();
             } else {
-                // Fin del quiz
                 questionEl.textContent = "¡Quiz completado!";
                 optionsEl.innerHTML = '';
                 feedbackEl.textContent = `Tu puntuación fue: ${score} de ${quizData.length}`;
                 nextBtn.textContent = "Volver a empezar";
-                // Recarga la página para reiniciar el quiz
                 nextBtn.addEventListener('click', () => {
                     location.reload(); 
-                }, { once: true }); // Asegura que el evento de recarga solo se añada una vez
+                }, { once: true });
             }
         });
 
-        // Cargar la primera pregunta
         loadQuestion();
 
     } catch(e) { console.error("Error al iniciar el quiz:", e); }
