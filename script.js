@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             try {
                 // Llama a nuestro servidor en el puerto 3000
-                const response = await fetch('http://localhost:3000/chat', {
+                const response = await fetch('https://lenguas-indigenas-ia.onrender.com/chat', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
