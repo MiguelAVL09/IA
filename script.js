@@ -255,4 +255,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch(e) { console.error("Error al iniciar el quiz:", e); }
 
+    // =================================
+    // Lógica para Animaciones en Scroll
+    // =================================
+    try {
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // Si el elemento está en la vista (intersecting)
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Opcional: dejar de observar el elemento una vez que ya fue animado
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '0px', // Margen alrededor del viewport
+            threshold: 0.1 // El 10% del elemento debe ser visible
+        });
+
+        // Observar cada elemento que deba ser animado
+        animatedElements.forEach(el => observer.observe(el));
+
+    } catch(e) { console.error("Error al iniciar el observador de animaciones:", e); }
+
 }); // <-- ESTE ES EL ÚNICO CIERRE del 'DOMContentLoaded'
