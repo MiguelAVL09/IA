@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         async function generarRespuesta(pregunta) {
             try {
                 // RECUERDA: Cambia esto a tu URL de Render cuando lo subas
-                const response = await fetch('https://lenguas-indigenas-ia.onrender.com/chat', {
+                const response = await fetch('https://lenguas-backend.onrender.com/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message: pregunta }),
