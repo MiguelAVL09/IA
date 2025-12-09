@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) { console.error("Error al crear la gráfica:", e); }
 
     // =================================
-    // CÓDIGO DEL CHATBOT (Existente y Corregido)
+    // CÓDIGO DEL CHATBOT
     // =================================
     try {
         const chatToggle = document.getElementById('chat-toggle');
