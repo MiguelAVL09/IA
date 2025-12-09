@@ -3,23 +3,23 @@
 // "Corazón Vibrante" - Asistente cultural de México
 // =============================================
 
-// 1️⃣ Importar dependencias
+
 const express = require('express');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 require('dotenv').config(); // Cargar API key desde .env
 const cors = require('cors');
 
-// 2️⃣ Configuración básica de Express
+
 const app = express();
 const port = 3000;
 app.use(express.json());
 app.use(cors());
 
-// 3️⃣ Inicializar Gemini
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-// 4️⃣ Probar conexión inicial al modelo (solo al iniciar el servidor)
+
 (async () => {
   try {
     console.log("🔄 Probando conexión con el modelo Gemini...");
@@ -32,7 +32,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
   }
 })();
 
-// 5️⃣ Configuración de generación
+
 const generationConfig = {
   temperature: 0.7,
   topK: 1,
@@ -46,7 +46,7 @@ const safetySettings = [
   { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
 ];
 
-// 6️⃣ Instrucción del sistema (personalidad del bot)
+
 const systemInstruction = `
 Eres "Corazón Vibrante", un asistente virtual experto en lenguas y culturas indígenas de México. 
 Tu propósito es educar y promover la riqueza cultural del país con respeto y entusiasmo.
@@ -63,7 +63,7 @@ Reglas:
 3. Sé amable, breve y educativo.
 `;
 
-// 7️⃣ Ruta principal del chatbot
+
 app.post('/chat', async (req, res) => {
   try {
     const userInput = req.body.message?.trim();
@@ -98,7 +98,7 @@ app.post('/chat', async (req, res) => {
   }
 });
 
-// 8️⃣ Iniciar el servidor
+
 app.listen(port, () => {
   console.log(`🚀 Servidor backend escuchando en http://localhost:${port}`);
 });
