@@ -280,4 +280,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch(e) { console.error("Error al iniciar el observador de animaciones:", e); }
 
-}); // <-- ESTE ES EL ÚNICO CIERRE del 'DOMContentLoaded'
+});
